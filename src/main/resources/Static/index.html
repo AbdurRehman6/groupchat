@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Chat Room </title>
+
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/style.css">
+
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <script src="/script.js"></script>
+
+</head>
+<body class="bg-dark text-white"> <!-- Ensure text is white for dark background -->
+
+    <div id="name-from" class="bg-primary text-white d-flex align-items-center justify-content-center vh-100"> <!-- Full-height centered alignment -->
+    
+        <div class="container"> <!-- Remove fluid for consistent centering -->
+    
+            <div class="row">
+    
+                <div class="col-md-6 offset-md-3"> <!-- Centered column -->
+    
+                    <!-- Card to contain input group -->
+                    <div class="card shadow-lg"> <!-- Shadow for depth -->
+    
+                        <div class="card-body"> <!-- Card body to contain form elements -->
+    
+                            <div class="input-group">
+    
+                                <input type="text"
+                                       placeholder="Enter your name"
+                                       id="name-value"
+                                       autofocus
+                                       class="form-control border-primary" <!-- Blue border -->
+                                >
+    
+                                <button class="btn btn-primary ms-2" id="login">Enter</button> <!-- Margins and color match -->
+    
+                            </div>
+    
+                        </div>
+    
+                    </div>
+    
+                </div>
+    
+            </div>
+    
+        </div>
+    
+    </div>
+    
+
+    <!-- Add custom CSS -->
+<style>
+    .light-purple-bg {
+        background-color: #ffffff; /* Light purple color */
+    }
+    </style>
+    
+    <div id="chat-room" class="d-none light-purple-bg">  <!-- Apply the light purple background -->
+    
+        <div class="container-fluid vh-100 d-flex align-items-center justify-content-center">
+            <div class="row w-100">
+                <div class="col-md-6 offset-md-3">
+    
+                    <div class="card shadow-lg rounded mt-3">
+                        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                            <h3 id="name-title" class="m-0"></h3>
+                            <button class="btn btn-light btn-sm" id="logout">Logout</button>
+                        </div>
+    
+                        <div class="card-body light-purple-bg">  <!-- Apply to the card body as well -->
+                            <div class="input-group mb-3">
+                                <input type="text"
+                                       placeholder="Enter your message"
+                                       id="message-value"
+                                       autofocus
+                                       class="form-control border-primary"
+                                       aria-label="Enter your message"
+                                >
+                                <button class="btn btn-primary ms-2" id="send-btn">Send</button>
+                            </div>
+    
+                            <div class="table-responsive mt-3">
+                                <table id="message-container-table" class="table table-striped">
+                                    <!-- Message content will be appended here -->
+                                </table>
+                            </div>
+    
+                            <div class="mt-3">
+                                <p class="text-muted">Note: Messages are not encrypted.</p>
+                            </div>
+    
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    
+    </div>
+    
+    
+    
+    
+
+
+</body>
+</html>
